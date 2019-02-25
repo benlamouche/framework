@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 
 #include <vector>
 using namespace std;
@@ -65,6 +66,8 @@ class Eni
         int cooldown;
         int currentTime;
 
+        //**** sfx ******
+        static Mix_Chunk *fireSound;
 
 
 };
