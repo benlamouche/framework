@@ -1,5 +1,6 @@
 #include "ScreenMessage.h"
 #include <iostream>
+#include <string.h>
 #include "../core/Game.h"
 #include "../util/fonctionTTF.h"
 
@@ -58,7 +59,12 @@ void ScreenMessage::draw()
     afficheTexte(position,m_text,ecran,texteFont,ROUGE);
 }
 
-void ScreenMessage::loach(char * text,Scene* parent)
+void ScreenMessage::setText(const char* text)
+{
+    strcpy(m_text,text);
+}
+
+void ScreenMessage::loach(const char * text,Scene* parent)
 {
     std::cerr<<"loach ScreenMessage"<<std::endl;
     ScreenMessage* screenMessage = new ScreenMessage(parent);

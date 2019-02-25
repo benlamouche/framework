@@ -1,8 +1,8 @@
 #ifndef SCREENMESSAGE_H
 #define SCREENMESSAGE_H
 
-#include "../core/Scene.h"
-#include "../constante.h"
+#include "core/Scene.h"
+#include "constante.h"
 
 class ScreenMessage : public Scene
 {
@@ -11,14 +11,14 @@ class ScreenMessage : public Scene
         virtual ~ScreenMessage();
         virtual void draw();
 
-        static void loach(char * text,Scene* parent);
+        static void loach(const char * text,Scene* parent);
 
     protected:
         virtual void load();
         virtual void unload();
         virtual void update(int dt);
     private:
-        void setText(char* text){m_text=text;}
+        void setText(const char* text);
         char* m_text;
 
         int delay;
