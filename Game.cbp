@@ -27,6 +27,9 @@
 					<Add directory="Scene" />
 					<Add directory="level" />
 				</Compiler>
+				<ResourceCompiler>
+					<Add directory="./" />
+				</ResourceCompiler>
 				<Linker>
 					<Add library="C:/Program Files (x86)/CodeBlocks/SDL2-2.0.8/lib/x86/SDL2.lib" />
 					<Add library="C:/Program Files (x86)/CodeBlocks/SDL2-2.0.8/lib/x86/SDL2main.lib" />
@@ -57,6 +60,9 @@
 					<Add directory="Scene" />
 					<Add directory="level" />
 				</Compiler>
+				<ResourceCompiler>
+					<Add directory="./" />
+				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
 					<Add library="C:/Program Files (x86)/CodeBlocks/SDL2-2.0.8/lib/x86/SDL2.lib" />
@@ -76,7 +82,7 @@
 			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL2_mixer-2.0.2/include" />
 		</Compiler>
 		<ResourceCompiler>
-			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL2-2.0.5/lib/x86" />
+			<Add directory="./" />
 		</ResourceCompiler>
 		<Linker>
 			<Add library="C:/Program Files (x86)/CodeBlocks/SDL2-2.0.8/lib/x86/SDL2.lib" />
@@ -123,6 +129,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="gfx/SDL2_rotozoom.h" />
+		<Unit filename="icon.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
 		<Unit filename="level/Level1.cpp" />
 		<Unit filename="level/Level1.h" />
 		<Unit filename="menuItem/Continue.cpp" />
