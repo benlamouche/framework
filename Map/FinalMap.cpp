@@ -63,6 +63,7 @@ void FinalMap::load()
     Explosion::load();
     Eni::load();
     player.load();//pour le son
+    loadMusic();
     void setrand();
     std::cerr<<"load map"<<std::endl;
     std::cerr<<"tileWidth : "<< tileWidth() <<" tileHeight : "<< tileHeight() <<std::endl;
@@ -83,6 +84,7 @@ void FinalMap::unload()
     Eni::vec.clear();
     Eni::unload();
     player.unload();//pour le son
+    unloadMusic();
     std::cerr<<"unload map"<<std::endl;
 }
 

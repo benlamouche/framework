@@ -1,4 +1,5 @@
 #include "Level1.h"
+#include <iostream>
 
 Level1::Level1(): FinalMap("data/map/level1.mp","data/map/wmap.png")
 {
@@ -51,4 +52,21 @@ void Level1::initEni()
     Eni::vec.push_back(Eni(250,1300));
     Eni::vec.push_back(Eni(250,1350));
     Eni::vec.push_back(Eni(250,1400));
+}
+
+void Level1::loadMusic()
+{
+    musique = Mix_LoadMUS("data/music/298274_Military_Theme.mp3");
+    if(!musique) {
+    std::cerr<<"Mix_LoadMUS: "<< Mix_GetError()<<std::endl;
+    // this might be a critical error...
+    }
+    Mix_VolumeMusic(MIX_MAX_VOLUME / 5);
+    Mix_PlayMusic(musique,-1);
+}
+
+void Level1::unloadMusic()
+{
+    Mix_HaltMusic();//stop la musique
+    Mix_FreeMusic(musique);
 }

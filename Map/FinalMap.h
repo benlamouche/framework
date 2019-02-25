@@ -46,6 +46,9 @@ class FinalMap : public Map, public Scene
         int action;
         int WW;
         SDL_Rect position,source,hitBoxObstacle,hitBox,hitBoxTest;
+
+        virtual void loadMusic()=0;
+        virtual void unloadMusic()=0;
 };
 
 void setTunnel(FinalMap *map1,int obj1,FinalMap* map2,int obj2);

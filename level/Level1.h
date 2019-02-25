@@ -13,8 +13,11 @@ class Level1 : public FinalMap
     protected:
 
     private:
-
+        void loadMusic();
+        void unloadMusic();
         void initEni();
+
+        Mix_Music *musique;
 };
 
 #endif // LEVEL1_H
