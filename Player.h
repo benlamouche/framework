@@ -26,7 +26,7 @@ class Player
         void setMouse(int x,int y);
         void fire();
         void damage();
-        void init();
+        void init(int x,int y);
         void load();
         void unload();
 

@@ -16,9 +16,6 @@ class FinalMap : public Map, public Scene
         FinalMap(const char* file,const char* TileSet,int Zoom=2);
         virtual ~FinalMap();
         void addElement(MapElement* val,int position){mapElement[position]=val;}
-
-        virtual void initEni();
-
         virtual void draw();
 
     protected:
@@ -49,6 +46,8 @@ class FinalMap : public Map, public Scene
 
         virtual void loadMusic()=0;
         virtual void unloadMusic()=0;
+        virtual void initPlayer()=0;
+        virtual void initEni()=0;
 };
 
 void setTunnel(FinalMap *map1,int obj1,FinalMap* map2,int obj2);

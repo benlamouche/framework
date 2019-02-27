@@ -17,7 +17,7 @@
 using namespace std;
 extern Game* game;
 //  position du hero sur la map(pas sur l'ecran)
-Player player;
+extern Player player;
 
 FinalMap::FinalMap(const char* file,const char* TileSet,int Zoom): Map(file),zoom(Zoom)
 {
@@ -45,8 +45,6 @@ FinalMap::~FinalMap()
 
 void FinalMap::load()
 {
-    player.init();//redefinir si plusieur map
-
     vitesse=2;
     velx=0,vely=0;
     testDeplace=1;
@@ -58,7 +56,8 @@ void FinalMap::load()
     hitBoxObstacle.w=tileWidth();
     hitBoxObstacle.h=tileHeight();
 
-    initEni();
+    initEni();//position Eni
+    initPlayer();//position Player
 
     Explosion::load();
     Eni::load();
@@ -67,11 +66,6 @@ void FinalMap::load()
     void setrand();
     std::cerr<<"load map"<<std::endl;
     std::cerr<<"tileWidth : "<< tileWidth() <<" tileHeight : "<< tileHeight() <<std::endl;
-}
-
-void FinalMap::initEni()
-{
-
 }
 
 void FinalMap::unload()

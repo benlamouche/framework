@@ -16,6 +16,7 @@ class Level1 : public FinalMap
         void loadMusic();
         void unloadMusic();
         void initEni();
+        void initPlayer();
 
         Mix_Music *musique;
 };

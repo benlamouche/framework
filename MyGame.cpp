@@ -21,6 +21,8 @@ TTF_Font* menuFont=NULL;
 
 Menu *mPrincipal=NULL;
 
+Player player;
+
 extern SDL_Color NOIR ;//  fonctionTTF.cpp
 extern SDL_Color VERT ;
 

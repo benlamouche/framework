@@ -25,10 +25,10 @@ Player::Player() : barre(pv,pvMax)
     barre.setColor(0,230,25);
 }
 
-void  Player::init()
+void  Player::init(int x,int y)
 {
-    m_posX=1400 ;
-    m_posY=900 ;
+    m_posX=x ;
+    m_posY=y ;
     pv=pvMax;
 }
 

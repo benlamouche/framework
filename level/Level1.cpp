@@ -1,5 +1,7 @@
 #include "Level1.h"
 #include <iostream>
+#include "../Player.h"
+extern Player player;
 
 Level1::Level1(): FinalMap("data/map/level1.mp","data/map/wmap.png")
 {
@@ -9,6 +11,11 @@ Level1::Level1(): FinalMap("data/map/level1.mp","data/map/wmap.png")
 Level1::~Level1()
 {
     //dtor
+}
+
+void Level1::initPlayer()
+{
+    player.init(1400,1000);
 }
 
 void Level1::initEni()
