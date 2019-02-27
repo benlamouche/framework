@@ -9,6 +9,7 @@
 #include "core/Game.h"
 #include "Player.h"
 #include "level/Level1.h"
+#include "level/Level2.h"
 #include "Scene/ScreenMessage.h"
 
 using namespace std;
@@ -39,7 +40,8 @@ MyGame::MyGame()
 //*********************************** CHARGEMENT SCENE **********************************
 
     level1= new Level1;
-    this->setCurrentScene(level1);
+    level2= new Level2;
+    this->setCurrentScene(level2);
 }
 
 MyGame::~MyGame()

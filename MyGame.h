@@ -17,6 +17,7 @@ class MyGame : public Game
 
     private:
         FinalMap* level1;
+        FinalMap* level2;
 };
 
 #endif // MYGAME_H
