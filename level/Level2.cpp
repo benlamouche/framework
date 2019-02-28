@@ -26,7 +26,7 @@ void Level2::initEni()
 
 void Level2::loadMusic()
 {
-    musique = Mix_LoadMUS("data/music/298274_Military_Theme.mp3");
+    musique = Mix_LoadMUS("data/music/770934_Epic-Idea-1.mp3");
     if(!musique) {
     std::cerr<<"Mix_LoadMUS: "<< Mix_GetError()<<std::endl;
     // this might be a critical error...
