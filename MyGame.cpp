@@ -3,9 +3,7 @@
 #include <iostream>
 #include "constante.h"
 #include "util/benrandom.h"
-#include "menu/SousMenu.h"
-#include "menuItem/Quit.h"
-#include "menuItem/Continue.h"
+#include "Scene/MenuIntro.h"
 #include "core/Game.h"
 #include "Player.h"
 #include "level/Level1.h"
@@ -39,9 +37,10 @@ MyGame::MyGame()
 
 //*********************************** CHARGEMENT SCENE **********************************
 
+    menuIntro= new MenuIntro;
     level1= new Level1;
     level2= new Level2;
-    this->setCurrentScene(level1);
+    this->setCurrentScene(menuIntro);
 }
 
 MyGame::~MyGame()

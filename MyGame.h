@@ -17,6 +17,7 @@ class MyGame : public Game
     protected:
 
     private:
+        Scene* menuIntro;
         FinalMap* level1;
         FinalMap* level2;
 };
