@@ -3,8 +3,6 @@
 #include "../Scene/MenuScene.h"
 #include "../Scene/MenuIntro.h"
 
-extern Game* game;
-
 LoachMenu::LoachMenu(Menu *parent,const char* name):ElementMenu(name)
 {
     //ctor
