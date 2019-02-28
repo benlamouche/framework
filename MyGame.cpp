@@ -67,6 +67,9 @@ void MyGame::goScene(int level)
     currentScene()->exit();
     switch(level)
         {
+            case 0:
+                this->setCurrentScene(menuIntro);
+                break;
             case 1:
                 this->setCurrentScene(level1);
                 break;

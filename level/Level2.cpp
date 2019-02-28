@@ -43,5 +43,5 @@ void Level2::unloadMusic()
 
 void Level2::goNextLevel()
 {
-    dynamic_cast<MyGame *>(game)->goScene(1);
+    dynamic_cast<MyGame *>(game)->goScene(0);
 }
