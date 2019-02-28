@@ -13,6 +13,7 @@ class MyGame : public Game
 
         void gameOver();
         void goScene(int level);
+        void switchFullScreen();
 
     protected:
 
@@ -20,6 +21,7 @@ class MyGame : public Game
         Scene* menuIntro;
         FinalMap* level1;
         FinalMap* level2;
+        bool FullScreen;
 };
 
 #endif // MYGAME_H

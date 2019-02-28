@@ -27,7 +27,7 @@ extern SDL_Color VERT ;
 
 MyGame::MyGame()
 {
-    //ctor
+    FullScreen=false;
 
 // ***********  CHARGEMENT FONT **********************************
 
@@ -74,4 +74,15 @@ void MyGame::goScene(int level)
                 this->setCurrentScene(level2);
                 break;
         }
+}
+
+void MyGame::switchFullScreen()
+{
+    if(FullScreen){
+        FullScreen=false;
+        SDL_SetWindowFullscreen(ecran,0);
+    }else{
+        FullScreen=true;
+        SDL_SetWindowFullscreen(ecran,SDL_WINDOW_FULLSCREEN);
+    }
 }

@@ -4,6 +4,7 @@
 #include "../menu/SousMenu.h"
 #include "../menuItem/Quit.h"
 #include "../menuItem/Continue.h"
+#include "../menuItem/FullScreen.h"
 
 
 #include <iostream>
@@ -27,9 +28,9 @@ MenuScene::~MenuScene()
 void MenuScene::load()
 {
     mPrincipal= new Menu(200,100,menuFont,50);
-    mPrincipal->addElement(new Continue("Continuer"));
-
-    mPrincipal->addElement(new Quit("Quiter"));
+    mPrincipal->addElement(new Continue("Continue"));
+    mPrincipal->addElement(new FullScreen("FullScreen"));
+    mPrincipal->addElement(new Quit("Quit"));
     Menu::setMenuActif(mPrincipal);
     setRGB(50,100,100);
     if(parent()){

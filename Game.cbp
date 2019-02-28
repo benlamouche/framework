@@ -140,6 +140,8 @@
 		<Unit filename="level/Level2.h" />
 		<Unit filename="menuItem/Continue.cpp" />
 		<Unit filename="menuItem/Continue.h" />
+		<Unit filename="menuItem/FullScreen.cpp" />
+		<Unit filename="menuItem/FullScreen.h" />
 		<Unit filename="menuItem/GoLevel.cpp" />
 		<Unit filename="menuItem/GoLevel.h" />
 		<Unit filename="menuItem/LoachMenu.cpp" />
