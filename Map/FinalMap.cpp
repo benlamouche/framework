@@ -12,6 +12,7 @@
 #include "../MapElement/Sortie.h"
 #include "../Bullet.h"
 #include "../Explosion.h"
+#include "../Scene/ScreenMessage.h"
 // pour gameOver
 #include "../MyGame.h"
 using namespace std;
@@ -274,6 +275,10 @@ void FinalMap::update(int dt)
                     std::cerr<<"supression Eni"<<std::endl;
                 }
             }
+        }else{
+            //si plus d'Eni
+            ScreenMessage::loach("STAGE CLEAR",this);
+            goNextLevel();
         }
 
 

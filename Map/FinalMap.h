@@ -48,6 +48,7 @@ class FinalMap : public Map, public Scene
         virtual void unloadMusic()=0;
         virtual void initPlayer()=0;
         virtual void initEni()=0;
+        virtual void goNextLevel()=0;
 };
 
 void setTunnel(FinalMap *map1,int obj1,FinalMap* map2,int obj2);

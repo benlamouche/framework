@@ -12,6 +12,7 @@ class MyGame : public Game
         virtual ~MyGame();
 
         void gameOver();
+        void goScene(int level);
 
     protected:
 

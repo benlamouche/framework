@@ -1,6 +1,7 @@
 #include "Level1.h"
 #include <iostream>
 #include "../Player.h"
+#include "../MyGame.h"
 extern Player player;
 
 Level1::Level1(): FinalMap("data/map/level1.mp","data/map/wmap.png")
@@ -76,4 +77,9 @@ void Level1::unloadMusic()
 {
     Mix_HaltMusic();//stop la musique
     Mix_FreeMusic(musique);
+}
+
+void Level1::goNextLevel()
+{
+    dynamic_cast<MyGame *>(game)->goScene(2);
 }

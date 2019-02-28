@@ -41,7 +41,7 @@ MyGame::MyGame()
 
     level1= new Level1;
     level2= new Level2;
-    this->setCurrentScene(level2);
+    this->setCurrentScene(level1);
 }
 
 MyGame::~MyGame()
@@ -59,9 +59,20 @@ void MyGame::gameOver()
 {
     std::cerr<<"Game Over"<<std::endl;
     ScreenMessage::loach("GAME OVER",this->currentScene());
-    std::cerr<<"Test1"<<std::endl;
     currentScene()->exit();
-    std::cerr<<"Test2"<<std::endl;
     this->setCurrentScene(level1);
-    std::cerr<<"Test3"<<std::endl;
+}
+
+void MyGame::goScene(int level)
+{
+    currentScene()->exit();
+    switch(level)
+        {
+            case 1:
+                this->setCurrentScene(level1);
+                break;
+            case 2:
+                this->setCurrentScene(level2);
+                break;
+        }
 }
