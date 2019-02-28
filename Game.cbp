@@ -115,6 +115,8 @@
 		<Unit filename="MyGame.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
+		<Unit filename="Scene/MenuIntro.cpp" />
+		<Unit filename="Scene/MenuIntro.h" />
 		<Unit filename="Scene/MenuScene.cpp" />
 		<Unit filename="Scene/MenuScene.h" />
 		<Unit filename="Scene/ScreenMessage.cpp" />
@@ -138,6 +140,8 @@
 		<Unit filename="level/Level2.h" />
 		<Unit filename="menuItem/Continue.cpp" />
 		<Unit filename="menuItem/Continue.h" />
+		<Unit filename="menuItem/GoLevel.cpp" />
+		<Unit filename="menuItem/GoLevel.h" />
 		<Unit filename="menuItem/Quit.cpp" />
 		<Unit filename="menuItem/Quit.h" />
 		<Unit filename="menu/ElementMenu.cpp" />
