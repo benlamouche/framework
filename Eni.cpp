@@ -111,7 +111,7 @@ void Eni::deplace(int velX, int velY)
 
 void Eni::fire()
 {
-    Bullet bullet(posX()+cos(angle)*30,posY()+sin(angle)*30,angle);
+    Bullet bullet(posX()+cos(angle)*30,posY()+sin(angle)*30,angle,Bullet::ENI);
     Bullet::vec.push_back(bullet);
     Mix_PlayChannel(-1, fireSound, 0);
 }

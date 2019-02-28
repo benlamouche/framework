@@ -1,13 +1,14 @@
 #ifndef BULLET_H
 #define BULLET_H
-
+#include <SDL.h>
 #include <vector>
 using namespace std;
 
 class Bullet
 {
     public:
-        Bullet(int x, int y, float angle);
+        enum from {AMI,ENI};
+        Bullet(int x, int y, float angle,from fm);
         virtual ~Bullet();
 
         int GetposX() { return posX; }
@@ -28,6 +29,9 @@ class Bullet
         static vector<Bullet> vec;
         static vector<Bullet>::iterator it;
 
+        static void load();
+        static void unload();
+
 
     protected:
 
@@ -38,6 +42,11 @@ class Bullet
         int velY;
 
         bool m_toDelete;
+
+        static SDL_Surface *m_sprite1;
+        static SDL_Surface *m_sprite2;
+
+        from frm;
 
 };
 

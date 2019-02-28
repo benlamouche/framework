@@ -1,17 +1,18 @@
 #include "Bullet.h"
 
 #include <cmath>
-#include <SDL.h>
+#include <SDL_image.h>
 
 extern SDL_Window *ecran;
 
-Bullet::Bullet(int x, int y, float angle)
+Bullet::Bullet(int x, int y, float angle,from fm)
 {
     posX=x;
     posY=y;
     velX=cos(angle)*10;
     velY=sin(angle)*10;
     m_toDelete=false;
+    frm=fm;
 }
 
 Bullet::~Bullet()
@@ -33,16 +34,31 @@ void Bullet::update(int playerX,int playerY)
 void Bullet::draw(int playerX,int playerY)
 {
     SDL_Rect pos;
-    SDL_Surface *m_spriteTest=SDL_CreateRGBSurface(0,4,4,32,0,0,0,0);
-    SDL_FillRect(m_spriteTest,NULL,SDL_MapRGB(SDL_GetWindowSurface(ecran)->format,255,0,0));
+    SDL_Surface *sprite;
+    if(frm==AMI){
+        sprite=m_sprite1;
+    }else{
+        sprite=m_sprite2;
+    }
+    pos.x=SDL_GetWindowSurface(ecran)->w/2+posX-playerX-3;
+    pos.y=SDL_GetWindowSurface(ecran)->h/2+posY-playerY-3;
 
-    pos.x=SDL_GetWindowSurface(ecran)->w/2+posX-playerX;
-    pos.y=SDL_GetWindowSurface(ecran)->h/2+posY-playerY;
+    SDL_BlitSurface(sprite,NULL,SDL_GetWindowSurface(ecran),&pos);
+}
 
-    SDL_BlitSurface(m_spriteTest,NULL,SDL_GetWindowSurface(ecran),&pos);
-    SDL_FreeSurface(m_spriteTest);
+void Bullet::load()
+{
+    m_sprite1=IMG_Load("./data/sprite/bullet1.png");
+    m_sprite2=IMG_Load("./data/sprite/bullet2.png");
+}
 
+void Bullet::unload()
+{
+    SDL_FreeSurface(m_sprite1);
+    SDL_FreeSurface(m_sprite2);
 }
 
 vector<Bullet> Bullet::vec;
 vector<Bullet>::iterator Bullet::it;
+SDL_Surface * Bullet::m_sprite1=NULL;
+SDL_Surface * Bullet::m_sprite2=NULL;

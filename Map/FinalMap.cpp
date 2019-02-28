@@ -60,6 +60,7 @@ void FinalMap::load()
     initEni();//position Eni
     initPlayer();//position Player
 
+    Bullet::load();
     Explosion::load();
     Eni::load();
     player.load();//pour le son
@@ -78,6 +79,7 @@ void FinalMap::unload()
     Bullet::vec.clear();
     Eni::vec.clear();
     Eni::unload();
+    Bullet::unload();
     player.unload();//pour le son
     unloadMusic();
     std::cerr<<"unload map"<<std::endl;

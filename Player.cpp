@@ -105,7 +105,7 @@ void Player::setMouse(int x,int y)
 
 void Player::fire()
 {
-    Bullet bullet(posX()+cos(angle)*30,posY()+sin(angle)*30,angle);
+    Bullet bullet(posX()+cos(angle)*30,posY()+sin(angle)*30,angle,Bullet::AMI);
     Bullet::vec.push_back(bullet);
     Mix_PlayChannel(-1, fireSound, 0);
     std::cerr<<"fire"<<std::endl;
