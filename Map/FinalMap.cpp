@@ -320,14 +320,14 @@ void FinalMap::draw()
                 }
             }
 
-            //affichage sprite hero
-            player.affiche();
-
             //affichage ennemie
             for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++)
             {
                 Eni::it->draw(player.posX(),player.posY());
             }
+
+            //affichage sprite hero
+            player.affiche();
 
             //affichage explosion
             if(!Explosion::vec.empty())
