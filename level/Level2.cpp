@@ -21,7 +21,7 @@ void Level2::initPlayer()
 
 void Level2::initEni()
 {
-    Eni::vec.push_back(Eni(1200,250));
+    Eni::vec.push_back(Eni(900,2000));
 }
 
 void Level2::loadMusic()

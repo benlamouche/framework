@@ -1,6 +1,6 @@
 #include "ScreenMessage.h"
 #include <iostream>
-#include <string.h>
+#include <cstdio>
 #include "../core/Game.h"
 #include "../util/fonctionTTF.h"
 
@@ -61,7 +61,7 @@ void ScreenMessage::draw()
 
 void ScreenMessage::setText(const char* text)
 {
-    strcpy(m_text,text);
+    sprintf(m_text,text);
 }
 
 void ScreenMessage::loach(const char * text,Scene* parent)

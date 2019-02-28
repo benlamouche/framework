@@ -19,7 +19,7 @@ class ScreenMessage : public Scene
         virtual void update(int dt);
     private:
         void setText(const char* text);
-        char* m_text;
+        char m_text[128];
 
         int delay;
         int delayInit;
