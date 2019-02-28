@@ -2,6 +2,7 @@
 #include "../core/Game.h"
 #include "../menuItem/Quit.h"
 #include "../menuItem/GoLevel.h"
+#include "../menuItem/LoachMenu.h"
 
 #include <iostream>
 
@@ -27,6 +28,7 @@ void MenuIntro::load()
 
     mPrincipal->addElement(new GoLevel(1,"level 1"));
     mPrincipal->addElement(new GoLevel(2,"level 2"));
+    mPrincipal->addElement(new LoachMenu(mPrincipal,"Menu"));
     mPrincipal->addElement(new Quit("Quitter"));
     Menu::setMenuActif(mPrincipal);
     setRGB(0,0,0);
@@ -48,6 +50,7 @@ void MenuIntro::load()
 
 void MenuIntro::unload()
 {
+    delete mPrincipal;
     // ************ music *************
 
     Mix_HaltMusic();//stop la musique

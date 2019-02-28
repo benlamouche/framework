@@ -142,6 +142,8 @@
 		<Unit filename="menuItem/Continue.h" />
 		<Unit filename="menuItem/GoLevel.cpp" />
 		<Unit filename="menuItem/GoLevel.h" />
+		<Unit filename="menuItem/LoachMenu.cpp" />
+		<Unit filename="menuItem/LoachMenu.h" />
 		<Unit filename="menuItem/Quit.cpp" />
 		<Unit filename="menuItem/Quit.h" />
 		<Unit filename="menu/ElementMenu.cpp" />
