@@ -8,8 +8,11 @@ class Bullet
 {
     public:
         enum from {AMI,ENI};
+
         Bullet(int x, int y, float angle,from fm);
         virtual ~Bullet();
+
+        from GetTag(){ return frm; }
 
         int GetposX() { return posX; }
         void SetposX(int val) { posX = val; }

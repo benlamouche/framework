@@ -233,13 +233,13 @@ void FinalMap::update(int dt)
 
                 for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++)
                 {//gestion des collision tir ennemi
-                    if(!Eni::it->isDestroyed()&&pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),Eni::it->hitBox())){
+                    if(!Eni::it->isDestroyed()&&pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),Eni::it->hitBox())&&Bullet::it->GetTag()==Bullet::AMI){
                         Bullet::it->del();
                         Eni::it->destroy();
                     }
                 }
 
-                if(pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),player.hitBox())){
+                if(pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),player.hitBox())&&Bullet::it->GetTag()==Bullet::ENI){
                     Bullet::it->del();
                     player.damage();
                 }
@@ -315,13 +315,6 @@ void FinalMap::draw()
                 }
             }
 
-            if(!Bullet::vec.empty())
-            {
-                for(Bullet::it=Bullet::vec.begin();Bullet::it!=Bullet::vec.end();Bullet::it++){
-                    Bullet::it->draw(player.posX(),player.posY());
-                }
-            }
-
             //affichage ennemie
             for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++)
             {
@@ -330,6 +323,14 @@ void FinalMap::draw()
 
             //affichage sprite hero
             player.affiche();
+
+            //affichage Bullet
+            if(!Bullet::vec.empty())
+            {
+                for(Bullet::it=Bullet::vec.begin();Bullet::it!=Bullet::vec.end();Bullet::it++){
+                    Bullet::it->draw(player.posX(),player.posY());
+                }
+            }
 
             //affichage explosion
             if(!Explosion::vec.empty())
