@@ -58,8 +58,7 @@ void MyGame::gameOver()
 {
     std::cerr<<"Game Over"<<std::endl;
     ScreenMessage::loach("GAME OVER",this->currentScene());
-    currentScene()->exit();
-    this->setCurrentScene(level1);
+    goScene(0);
 }
 
 void MyGame::goScene(int level)
