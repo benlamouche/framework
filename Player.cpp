@@ -17,6 +17,7 @@ Player::Player() : barre(pv,pvMax)
     m_width=20;
     angleTank=0;
     angleTurret=0;
+    speed=2;
 
     pv=pvMax=10;
     barre.setPosition(10,10);
@@ -63,38 +64,36 @@ void Player::affiche()
 
 }
 
-bool Player::deplace(int velX, int velY)
+void Player::moov()
 {
-    if (velX < 0){
-        if (velY > 0){
+    if (velX() < 0){
+        if (velY() > 0){
             angleTank=225;
-        }else if(velY < 0){
+        }else if(velY() < 0){
             angleTank=135;
         }else{
             angleTank=180;
         }
-    }else if(velX > 0){
-         if (velY > 0){
+    }else if(velX() > 0){
+         if (velY() > 0){
             angleTank=315;
-        }else if(velY < 0){
+        }else if(velY() < 0){
             angleTank=45;
         }else{
             angleTank=0;
         }
     }else{
-         if (velY > 0){
+         if (velY() > 0){
             angleTank=270;
-        }else if(velY < 0){
+        }else if(velY() < 0){
             angleTank=90;
         }else{
 
         }
     }
 
-    m_posX+=velX;
-    m_posY+=velY;
-
-       return true;
+    m_posX+=velX();
+    m_posY+=velY();
 }
 
 void Player::setMouse(int x,int y)

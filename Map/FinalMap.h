@@ -27,6 +27,7 @@ class FinalMap : public Map, public Scene
 
     private:
         FinalMap();
+        bool testMoov(int velX, int velY,SDL_Rect hitBox);
         SDL_Surface* tileSet;
 
         int nbtuecranx;//=WECRAN/WTUILE;
@@ -36,13 +37,10 @@ class FinalMap : public Map, public Scene
 
         int zoom;
 
-        int vitesse;
-        int velx,vely;
-        int testDeplace;
         int menu;
         int action;
         int WW;
-        SDL_Rect position,source,hitBoxObstacle,hitBox,hitBoxTest;
+        SDL_Rect position,source;
 
         virtual void loadMusic()=0;
         virtual void unloadMusic()=0;

@@ -46,16 +46,9 @@ FinalMap::~FinalMap()
 
 void FinalMap::load()
 {
-    vitesse=2;
-    velx=0,vely=0;
-    testDeplace=1;
     menu=0;
     action=0;
     WW =tileSet->w/tileWidth();
-    hitBoxObstacle.x=0;
-    hitBoxObstacle.y=0;
-    hitBoxObstacle.w=tileWidth();
-    hitBoxObstacle.h=tileHeight();
 
     initEni();//position Eni
     initPlayer();//position Player
@@ -102,22 +95,22 @@ void FinalMap::input()
                     case SDLK_RIGHT:
                     case SDLK_d:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        velx= vitesse;
+                        player.goEast();
                         break;
                     case SDLK_LEFT:
                     case SDLK_q:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        velx= -vitesse;
+                        player.goWest();
                         break;
                     case SDLK_UP:
                     case SDLK_z:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        vely= -vitesse;
+                        player.goNorth();
                         break;
                     case SDLK_DOWN:
                     case SDLK_s:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        vely= +vitesse;
+                        player.goSouth();
                         break;
                     case SDLK_RETURN:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
@@ -133,22 +126,22 @@ void FinalMap::input()
                     case SDLK_RIGHT:
                     case SDLK_d:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        velx= 0;
+                        player.stopEWMoov();
                         break;
                     case SDLK_LEFT:
                     case SDLK_q:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        velx= 0;
+                        player.stopEWMoov();
                         break;
                     case SDLK_UP:
                     case SDLK_z:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        vely= 0;
+                        player.stopNSMoov();
                         break;
                     case SDLK_DOWN:
                     case SDLK_s:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        vely= 0;
+                        player.stopNSMoov();
                         break;
                     default:
                         break;
@@ -181,25 +174,9 @@ void FinalMap::update(int dt)
             menu=0;
         }
 
-        /*test de collision obstacle */
-        hitBoxTest=player.hitBox();
-        hitBoxTest.x+=velx;
-        hitBoxTest.y+=vely;
-        testDeplace=1;
-
-        for(int i=0;i<width();i++){
-            for(int j=0;j<height();j++){
-                if(mapElement[obj(i,j)]->isAWall()){
-                    hitBoxObstacle.x=i*tileWidth();
-                    hitBoxObstacle.y=j*tileHeight();
-                    if(boxCollision(hitBoxTest,hitBoxObstacle))testDeplace=0;
-                }
-            }
-        }
-
         /* deplacement si pas d'ocbstacle */
-        if(testDeplace){
-            player.deplace(velx,vely);
+        if(testMoov(player.velX(),player.velY(),player.hitBox())){
+            player.moov();
 
         }
 
@@ -341,6 +318,34 @@ void FinalMap::draw()
             }
 }
 
+bool FinalMap::testMoov(int velX, int velY,SDL_Rect hitBox)
+{
+    /*test de collision obstacle */
+        SDL_Rect hitBoxTest=hitBox;
+        SDL_Rect hitBoxWall;
+        hitBoxWall.w=tileWidth();
+        hitBoxWall.h=tileHeight();
+
+        hitBoxTest.x+=velX;
+        hitBoxTest.y+=velY;
+        int test=true;
+
+        for(int i=0;i<width() && test;i++){
+            for(int j=0;j<height() && test;j++){
+                if(mapElement[obj(i,j)]->isAWall()){
+                    hitBoxWall.x=i*tileWidth();
+                    hitBoxWall.y=j*tileHeight();
+                    if(boxCollision(hitBoxTest,hitBoxWall))
+                    {
+                        test=false;
+                    }
+                }
+            }
+        }
+
+        return test;
+}
+
 //
 void setTunnel(FinalMap *map1,int obj1,FinalMap* map2,int obj2)
 {
@@ -366,3 +371,4 @@ void setTunnel(FinalMap *map1,int obj1,FinalMap* map2,int obj2)
     map1->addElement(new Sortie(map2,x2*map2->tileWidth()+map2->tileWidth()/2,y2*map2->tileHeight()),obj1);
     map2->addElement(new Sortie(map1,x1*map1->tileWidth()+map1->tileWidth()/2,y1*map1->tileHeight()),obj2);
 }
+

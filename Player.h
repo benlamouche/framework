@@ -14,7 +14,7 @@ class Player
         virtual ~Player();
 
         void affiche();
-        bool deplace(int velX, int velY);
+        void moov();
 
         void setPosition(int x,int y){m_posX=x;m_posY=y;}
         int posX(){return m_posX;}
@@ -40,6 +40,16 @@ class Player
             return hitBox;
         }
 
+        void goSouth(){m_velY=speed;}
+        void goNorth(){m_velY=-speed;}
+        void goEast(){m_velX=speed;}
+        void goWest(){m_velX=-speed;}
+        void stopEWMoov(){m_velX=0;}
+        void stopNSMoov(){m_velY=0;}
+
+        int velX(){return m_velX;}
+        int velY(){return m_velY;}
+
     protected:
 
     private:
@@ -57,6 +67,10 @@ class Player
         int pv;
         int pvMax;
         Barre barre;
+
+        int speed;
+        int m_velX;
+        int m_velY;
 
         //**** sfx ******
         Mix_Chunk *fireSound;
