@@ -245,7 +245,15 @@ void FinalMap::update(int dt)
         if(!Eni::vec.empty())
         {
             for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++){
-                Eni::it->update(player.posX(),player.posY());
+                if(Eni::it->update(player.posX(),player.posY()))
+                {
+                    if(testMoov(Eni::it->velX(),Eni::it->velY(),Eni::it->hitBox()))
+                    {
+                        Eni::it->moov();
+                    }else{
+                        Eni::it->changeDirection();
+                    }
+                }
             }
 
             for(Eni::it=Eni::vec.end()-1;Eni::it!=Eni::vec.begin()-1;Eni::it--){

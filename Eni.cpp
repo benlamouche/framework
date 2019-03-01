@@ -22,6 +22,8 @@ Eni::Eni(int x,int y)
 
     cooldown=50;
     currentTime=de(cooldown);
+
+    changeDirection();
 }
 
 void  Eni::init()
@@ -35,7 +37,7 @@ Eni::~Eni()
 
 }
 
-void Eni::update(int playerX,int playerY)
+bool Eni::update(int playerX,int playerY)
 {
     //rectangle de l'écran
     SDL_Rect ecranRect;
@@ -44,7 +46,9 @@ void Eni::update(int playerX,int playerY)
     ecranRect.w=SDL_GetWindowSurface(ecran)->w+m_width;
     ecranRect.h=SDL_GetWindowSurface(ecran)->h+m_height;
     //si Eni est dans l'ecran : update
+    bool test=false;
     if(pointCollision(posX(),posY(),ecranRect)){
+        test=true;
         angle=atan2(playerY-posY(),playerX-posX());
         angleTurret=180*angle/M_PI;
         if (currentTime--<0)
@@ -53,6 +57,7 @@ void Eni::update(int playerX,int playerY)
             currentTime=cooldown;
         }
     }
+    return test;
 }
 
 void Eni::draw(int playerX,int playerY)
@@ -76,36 +81,36 @@ void Eni::draw(int playerX,int playerY)
 
 }
 
-void Eni::deplace(int velX, int velY)
+void Eni::moov()
 {
-    if (velX < 0){
-        if (velY > 0){
+    if (velX() < 0){
+        if (velY() > 0){
             angleTank=225;
-        }else if(velY < 0){
+        }else if(velY() < 0){
             angleTank=135;
         }else{
             angleTank=180;
         }
-    }else if(velX > 0){
-         if (velY > 0){
+    }else if(velX() > 0){
+         if (velY() > 0){
             angleTank=315;
-        }else if(velY < 0){
+        }else if(velY() < 0){
             angleTank=45;
         }else{
             angleTank=0;
         }
     }else{
-         if (velY > 0){
+         if (velY() > 0){
             angleTank=270;
-        }else if(velY < 0){
+        }else if(velY() < 0){
             angleTank=90;
         }else{
 
         }
     }
 
-    m_posX+=velX;
-    m_posY+=velY;
+    m_posX+=velX();
+    m_posY+=velY();
 
 }
 
@@ -145,6 +150,17 @@ void Eni::unload()
     fireSound=NULL;
     //**************** sfx ****************
 }
+
+void Eni::changeDirection()
+{
+    m_velX=random(2);
+    if(m_velX>1)m_velX=-1;
+    m_velY=random(2);
+    if(m_velY>1)m_velY=-1;
+
+    if(m_velY==0 && m_velX==0)changeDirection();
+}
+
 vector<Eni> Eni::vec;
 vector<Eni>::iterator Eni::it;
 SDL_Surface * Eni::m_sprite=NULL;

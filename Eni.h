@@ -15,8 +15,9 @@ class Eni
         virtual ~Eni();
 
         void draw(int, int);
-        void update(int,int);
-        void deplace(int velX, int velY);
+        bool update(int,int);
+        void moov();
+        void changeDirection();
 
         void setPosition(int x,int y){m_posX=x;m_posY=y;}
         int posX(){return m_posX;}
@@ -39,6 +40,9 @@ class Eni
             hitBox.y=posY()-height()/2;
             return hitBox;
         }
+
+        int velX(){return m_velX;}
+        int velY(){return m_velY;}
 
         static void load();
         static void unload();
@@ -65,6 +69,9 @@ class Eni
         bool m_isDestroyed;
         int cooldown;
         int currentTime;
+
+        int m_velX;
+        int m_velY;
 
         //**** sfx ******
         static Mix_Chunk *fireSound;

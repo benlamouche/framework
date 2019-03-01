@@ -19,7 +19,7 @@ Player::Player() : barre(pv,pvMax)
     angleTurret=0;
     speed=2;
 
-    pv=pvMax=10;
+    pv=pvMax=20;
     barre.setPosition(10,10);
     barre.setLLL(200,10,2);
     barre.setBackColor(0,20,100);
