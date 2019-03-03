@@ -126,22 +126,22 @@ void FinalMap::input()
                     case SDLK_RIGHT:
                     case SDLK_d:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        player.stopEWMoov();
+                        player.stopEast();
                         break;
                     case SDLK_LEFT:
                     case SDLK_q:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        player.stopEWMoov();
+                        player.stopWest();
                         break;
                     case SDLK_UP:
                     case SDLK_z:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        player.stopNSMoov();
+                        player.stopNorth();
                         break;
                     case SDLK_DOWN:
                     case SDLK_s:
                         event.key.keysym.sym=0;//evite les pb de repetition de touche
-                        player.stopNSMoov();
+                        player.stopSouth();
                         break;
                     default:
                         break;

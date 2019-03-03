@@ -44,8 +44,12 @@ class Player
         void goNorth(){m_velY=-speed;}
         void goEast(){m_velX=speed;}
         void goWest(){m_velX=-speed;}
-        void stopEWMoov(){m_velX=0;}
-        void stopNSMoov(){m_velY=0;}
+
+        void stopSouth(){m_velY=m_velY==speed?0:m_velY;}
+        void stopNorth(){m_velY=m_velY==-speed?0:m_velY;}
+        void stopEast(){m_velX=m_velX==speed?0:m_velX;}
+        void stopWest(){m_velX=m_velX==-speed?0:m_velX;}
+
 
         int velX(){return m_velX;}
         int velY(){return m_velY;}
