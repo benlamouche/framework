@@ -28,6 +28,7 @@ extern SDL_Color VERT ;
 
 MyGame::MyGame()
 {
+    setrand();
     FullScreen=false;
 
 // ***********  CHARGEMENT FONT **********************************

@@ -20,7 +20,7 @@ Eni::Eni(int x,int y)
 
     m_isDestroyed=false;
 
-    cooldown=50;
+    cooldown=100;
     currentTime=de(cooldown);
 
     changeDirection();
