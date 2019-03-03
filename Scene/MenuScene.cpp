@@ -29,7 +29,7 @@ void MenuScene::load()
 {
     mPrincipal= new Menu(200,100,menuFont,50);
     mPrincipal->addElement(new Continue("Continue"));
-    mPrincipal->addElement(new FullScreen("FullScreen"));
+    mPrincipal->addElement(new FullScreen("Full Screen"));
     mPrincipal->addElement(new Quit("Quit"));
     Menu::setMenuActif(mPrincipal);
     setRGB(50,100,100);

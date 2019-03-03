@@ -2,7 +2,8 @@
 #include "../core/Game.h"
 #include "../menuItem/Quit.h"
 #include "../menuItem/GoLevel.h"
-#include "../menuItem/LoachMenu.h"
+#include "../menuItem/FullScreen.h"
+//#include "../menuItem/LoachMenu.h"
 
 #include <iostream>
 
@@ -29,7 +30,8 @@ void MenuIntro::load()
     mPrincipal->addElement(new GoLevel(1,"level 1"));
     mPrincipal->addElement(new GoLevel(2,"level 2"));
     mPrincipal->addElement(new GoLevel(2,"level 3"));
-    mPrincipal->addElement(new LoachMenu(mPrincipal,"Menu"));
+    mPrincipal->addElement(new FullScreen("Full Screen"));
+    //mPrincipal->addElement(new LoachMenu(mPrincipal,"Menu"));
     mPrincipal->addElement(new Quit("Quit"));
     Menu::setMenuActif(mPrincipal);
     setRGB(0,0,0);
@@ -47,6 +49,9 @@ void MenuIntro::load()
     }
     Mix_VolumeMusic(MIX_MAX_VOLUME / 5);
     Mix_PlayMusic(musique,-1);
+
+    //backGround
+    backGround = IMG_Load("./data/sprite/tank2.png");
 }
 
 void MenuIntro::unload()
@@ -58,6 +63,8 @@ void MenuIntro::unload()
     Mix_FreeMusic(musique);
 
     // ************ music end *************
+
+    SDL_FreeSurface(backGround);
 }
 
 void MenuIntro::update(int dt)
@@ -105,10 +112,12 @@ void MenuIntro::update(int dt)
 
 void MenuIntro::draw()
 {
-    if(parent()){
-        parent()->clean();
-        parent()->draw();
-    }
+//    if(parent()){
+//        parent()->clean();
+//        parent()->draw();
+//    }
+
+    SDL_BlitSurface(backGround,NULL,SDL_GetWindowSurface(ecran),NULL);
 
     Menu::menuActif()->affiche(ecran);
 }

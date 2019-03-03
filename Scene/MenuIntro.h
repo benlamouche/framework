@@ -21,6 +21,7 @@ class MenuIntro : public Scene
     private:
         Menu *mPrincipal;
         Mix_Music *musique;
+        SDL_Surface *backGround;
 };
 
 #endif // MENUINTRO_H
