@@ -76,6 +76,8 @@ class Player
         int m_velX;
         int m_velY;
 
+        bool isDamaged;
+
         //**** sfx ******
         Mix_Chunk *fireSound;
 

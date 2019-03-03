@@ -28,9 +28,12 @@ Player::Player() : barre(pv,pvMax)
 
 void  Player::init(int x,int y)
 {
-    m_posX=x ;
-    m_posY=y ;
+    m_posX=x;
+    m_posY=y;
     pv=pvMax;
+    isDamaged=false;
+    m_velX=0;
+    m_velY=0;
 }
 
 
@@ -47,6 +50,10 @@ void Player::affiche()
     SDL_Rect pos;
     pos.x=SDL_GetWindowSurface(ecran)->w/2-imageAfter->w/2;
     pos.y=SDL_GetWindowSurface(ecran)->h/2-imageAfter->h/2;
+    if(isDamaged){
+        SDL_SetSurfaceColorMod(imageAfter,255,0,0);
+        isDamaged=false;
+    }
     SDL_BlitSurface(imageAfter,NULL,SDL_GetWindowSurface(ecran),&pos);
     SDL_FreeSurface(imageAfter);
 
@@ -112,6 +119,7 @@ void Player::fire()
 
 void Player::damage()
 {
+    isDamaged=true;
     pv--;
 }
 
