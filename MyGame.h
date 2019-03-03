@@ -21,6 +21,7 @@ class MyGame : public Game
         Scene* menuIntro;
         FinalMap* level1;
         FinalMap* level2;
+        FinalMap* level3;
         bool FullScreen;
 };
 

@@ -28,6 +28,7 @@ void MenuIntro::load()
 
     mPrincipal->addElement(new GoLevel(1,"level 1"));
     mPrincipal->addElement(new GoLevel(2,"level 2"));
+    mPrincipal->addElement(new GoLevel(2,"level 3"));
     mPrincipal->addElement(new LoachMenu(mPrincipal,"Menu"));
     mPrincipal->addElement(new Quit("Quit"));
     Menu::setMenuActif(mPrincipal);

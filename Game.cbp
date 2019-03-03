@@ -138,6 +138,8 @@
 		<Unit filename="level/Level1.h" />
 		<Unit filename="level/Level2.cpp" />
 		<Unit filename="level/Level2.h" />
+		<Unit filename="level/Level3.cpp" />
+		<Unit filename="level/Level3.h" />
 		<Unit filename="menuItem/Continue.cpp" />
 		<Unit filename="menuItem/Continue.h" />
 		<Unit filename="menuItem/FullScreen.cpp" />

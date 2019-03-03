@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "level/Level1.h"
 #include "level/Level2.h"
+#include "level/Level3.h"
 #include "Scene/ScreenMessage.h"
 
 using namespace std;
@@ -40,6 +41,7 @@ MyGame::MyGame()
     menuIntro= new MenuIntro;
     level1= new Level1;
     level2= new Level2;
+    level2= new Level3;
     this->setCurrentScene(menuIntro);
 }
 
@@ -74,6 +76,9 @@ void MyGame::goScene(int level)
                 break;
             case 2:
                 this->setCurrentScene(level2);
+                break;
+            case 3:
+                this->setCurrentScene(level3);
                 break;
         }
 }
