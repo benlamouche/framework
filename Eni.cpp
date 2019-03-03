@@ -161,8 +161,6 @@ void Eni::changeDirection()
     if(m_velY==0 && m_velX==0)changeDirection();
 }
 
-vector<Eni> Eni::vec;
-vector<Eni>::iterator Eni::it;
 SDL_Surface * Eni::m_sprite=NULL;
 SDL_Surface * Eni::m_spriteTurret=NULL;
 Mix_Chunk * Eni::fireSound=NULL;

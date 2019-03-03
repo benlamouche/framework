@@ -72,11 +72,19 @@ void FinalMap::unload()
     Explosion::vec.clear();
     Explosion::unload();
     Bullet::vec.clear();
-    Eni::vec.clear();
+
     Eni::unload();
     Bullet::unload();
     player.unload();//pour le son
     unloadMusic();
+
+    if(!enis.empty())
+        {
+            for(eniIt=enis.begin();eniIt!=enis.end();eniIt++){
+                delete *eniIt;
+            }
+        }
+        enis.clear();
     std::cerr<<"unload map"<<std::endl;
 }
 
@@ -212,11 +220,11 @@ void FinalMap::update(int dt)
             for(Bullet::it=Bullet::vec.begin();Bullet::it!=Bullet::vec.end();Bullet::it++){
                 Bullet::it->update(player.posX(),player.posY());
 
-                for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++)
+                for(eniIt=enis.begin();eniIt!=enis.end();eniIt++)
                 {//gestion des collision tir ennemi
-                    if(!Eni::it->isDestroyed()&&pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),Eni::it->hitBox())&&Bullet::it->GetTag()==Bullet::AMI){
+                    if(!(*eniIt)->isDestroyed()&&pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),(*eniIt)->hitBox())&&Bullet::it->GetTag()==Bullet::AMI){
                         Bullet::it->del();
-                        Eni::it->destroy();
+                        (*eniIt)->destroy();
                     }
                 }
 
@@ -246,23 +254,24 @@ void FinalMap::update(int dt)
             }
         }
 
-        if(!Eni::vec.empty())
+        if(!enis.empty())
         {
-            for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++){
-                if(Eni::it->update(player.posX(),player.posY()))
+            for(eniIt=enis.begin();eniIt!=enis.end();eniIt++){
+                if((*eniIt)->update(player.posX(),player.posY()))
                 {
-                    if(testMoov(Eni::it->velX(),Eni::it->velY(),Eni::it->hitBox()))
+                    if(testMoov((*eniIt)->velX(),(*eniIt)->velY(),(*eniIt)->hitBox()))
                     {
-                        Eni::it->moov();
+                        (*eniIt)->moov();
                     }else{
-                        Eni::it->changeDirection();
+                        (*eniIt)->changeDirection();
                     }
                 }
             }
 
-            for(Eni::it=Eni::vec.end()-1;Eni::it!=Eni::vec.begin()-1;Eni::it--){
-                if(Eni::it->isDestroyed()){
-                    Eni::vec.erase (Eni::it);
+            for(eniIt=enis.end()-1;eniIt!=enis.begin()-1;eniIt--){
+                if((*eniIt)->isDestroyed()){
+                    delete *eniIt;
+                    enis.erase (eniIt);
                     std::cerr<<"supression Eni"<<std::endl;
                 }
             }
@@ -305,9 +314,9 @@ void FinalMap::draw()
             }
 
             //affichage ennemie
-            for(Eni::it=Eni::vec.begin();Eni::it!=Eni::vec.end();Eni::it++)
+            for(eniIt=enis.begin();eniIt!=enis.end();eniIt++)
             {
-                Eni::it->draw(player.posX(),player.posY());
+                (*eniIt)->draw(player.posX(),player.posY());
             }
 
             //affichage sprite hero

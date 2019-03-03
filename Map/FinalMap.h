@@ -24,6 +24,8 @@ class FinalMap : public Map, public Scene
         virtual void input();
         virtual void update(int dt);
 
+        vector<Eni*> enis;
+        vector<Eni*>::iterator eniIt;
 
     private:
         FinalMap();

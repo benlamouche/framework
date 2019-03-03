@@ -47,9 +47,6 @@ class Eni
         static void load();
         static void unload();
 
-        static vector<Eni> vec;
-        static vector<Eni>::iterator it;
-
 
     protected:
 
