@@ -46,6 +46,8 @@ FinalMap::~FinalMap()
 
 void FinalMap::load()
 {
+    SDL_SetWindowGrab(ecran,SDL_TRUE);
+
     menu=0;
     action=0;
     WW =tileSet->w/tileWidth();
@@ -65,7 +67,7 @@ void FinalMap::load()
 
 void FinalMap::unload()
 {
-
+    SDL_SetWindowGrab(ecran,SDL_FALSE);
     //vidage des vecteur
     Explosion::vec.clear();
     Explosion::unload();
@@ -170,8 +172,10 @@ void FinalMap::update(int dt)
 {
 
         if(menu){
+            SDL_SetWindowGrab(ecran,SDL_FALSE);
             MenuScene::loach(this);
             menu=0;
+            SDL_SetWindowGrab(ecran,SDL_TRUE);
         }
 
         /* deplacement si pas d'ocbstacle */
