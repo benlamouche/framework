@@ -108,12 +108,12 @@ void Level2::initEni()
 
 void Level2::loadMusic()
 {
-    musique = Mix_LoadMUS("data/music/770934_Epic-Idea-1.mp3");
+    musique = Mix_LoadMUS("data/music/53684_newgrounds_milita.mp3");
     if(!musique) {
     std::cerr<<"Mix_LoadMUS: "<< Mix_GetError()<<std::endl;
     // this might be a critical error...
     }
-    Mix_VolumeMusic(MIX_MAX_VOLUME / 5);
+    Mix_VolumeMusic(MIX_MAX_VOLUME / 3);
     Mix_PlayMusic(musique,-1);
 }
 

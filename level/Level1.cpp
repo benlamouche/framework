@@ -69,7 +69,7 @@ void Level1::loadMusic()
     std::cerr<<"Mix_LoadMUS: "<< Mix_GetError()<<std::endl;
     // this might be a critical error...
     }
-    Mix_VolumeMusic(MIX_MAX_VOLUME / 5);
+    Mix_VolumeMusic(MIX_MAX_VOLUME / 3);
     Mix_PlayMusic(musique,-1);
 }
 
