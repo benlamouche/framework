@@ -65,9 +65,9 @@ void Player::affiche()
     SDL_FreeSurface(turretAfter);
 
     barre.draw(ecran);
-    pos.x=500;
-    pos.y=10;
-    afficheIntSurInt(pos,posX(),posY(),ecran,numberFont,GRIS);
+//    pos.x=500;
+//    pos.y=10;
+//    afficheIntSurInt(pos,posX(),posY(),ecran,numberFont,GRIS);
 
 }
 

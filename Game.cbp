@@ -97,6 +97,8 @@
 		<Unit filename="Boss.h" />
 		<Unit filename="Bullet.cpp" />
 		<Unit filename="Bullet.h" />
+		<Unit filename="Ending.cpp" />
+		<Unit filename="Ending.h" />
 		<Unit filename="Eni.cpp" />
 		<Unit filename="Eni.h" />
 		<Unit filename="Explosion.cpp" />
@@ -136,6 +138,7 @@
 		<Unit filename="icon.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="intro.cpp" />
 		<Unit filename="level/Level1.cpp" />
 		<Unit filename="level/Level1.h" />
 		<Unit filename="level/Level2.cpp" />

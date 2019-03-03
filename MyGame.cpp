@@ -10,6 +10,7 @@
 #include "level/Level2.h"
 #include "level/Level3.h"
 #include "Scene/ScreenMessage.h"
+#include "Ending.h"
 
 using namespace std;
 
@@ -43,6 +44,7 @@ MyGame::MyGame()
     level1= new Level1;
     level2= new Level2;
     level3= new Level3;
+    ending= new Ending;
     this->setCurrentScene(menuIntro);
 }
 
@@ -80,6 +82,9 @@ void MyGame::goScene(int level)
                 break;
             case 3:
                 this->setCurrentScene(level3);
+                break;
+            case 4:
+                this->setCurrentScene(ending);
                 break;
         }
 }
