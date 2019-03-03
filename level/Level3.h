@@ -15,7 +15,8 @@ class Level3 : public FinalMap
     private:
         void loadMusic();
         void unloadMusic();
-        void initEni();
+        void loadEnis();
+        void unloadEnis();
         void initPlayer();
         void goNextLevel();
 

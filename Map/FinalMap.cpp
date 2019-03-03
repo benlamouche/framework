@@ -52,7 +52,7 @@ void FinalMap::load()
     action=0;
     WW =tileSet->w/tileWidth();
 
-    initEni();//position Eni
+    loadEnis();//position Eni + boss
     initPlayer();//position Player
 
     Bullet::load();
@@ -72,6 +72,8 @@ void FinalMap::unload()
     Explosion::vec.clear();
     Explosion::unload();
     Bullet::vec.clear();
+
+    unloadEnis();//boss
 
     Eni::unload();
     Bullet::unload();
@@ -224,7 +226,7 @@ void FinalMap::update(int dt)
                 {//gestion des collision tir ennemi
                     if(!(*eniIt)->isDestroyed()&&pointCollision(Bullet::it->GetposX(),Bullet::it->GetposY(),(*eniIt)->hitBox())&&Bullet::it->GetTag()==Bullet::AMI){
                         Bullet::it->del();
-                        (*eniIt)->destroy();
+                        (*eniIt)->damage();
                     }
                 }
 

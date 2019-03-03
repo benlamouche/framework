@@ -78,7 +78,6 @@ void Eni::draw(int playerX,int playerY)
         SDL_BlitSurface(turretAfter,NULL,SDL_GetWindowSurface(ecran),&pos);
         SDL_FreeSurface(turretAfter);
     }
-
 }
 
 void Eni::moov()
@@ -121,7 +120,7 @@ void Eni::fire()
     Mix_PlayChannel(-1, fireSound, 0);
 }
 
-void Eni::destroy()
+void Eni::damage()
 {
     Explosion::vec.push_back(Explosion(posX(),posY()));
 

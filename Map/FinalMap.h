@@ -47,7 +47,8 @@ class FinalMap : public Map, public Scene
         virtual void loadMusic()=0;
         virtual void unloadMusic()=0;
         virtual void initPlayer()=0;
-        virtual void initEni()=0;
+        virtual void loadEnis()=0;
+        virtual void unloadEnis()=0;
         virtual void goNextLevel()=0;
 };
 

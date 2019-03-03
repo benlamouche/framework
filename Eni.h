@@ -14,7 +14,7 @@ class Eni
         Eni(int x,int y);
         virtual ~Eni();
 
-        void draw(int, int);
+        virtual void draw(int, int);
         bool update(int,int);
         void moov();
         void changeDirection();
@@ -26,9 +26,9 @@ class Eni
         int height(){return m_height;}
 
         bool isDestroyed(){return m_isDestroyed;}
-        void destroy();
+        void damage();
 
-        void fire();
+        virtual void fire();
         void init();
 
         SDL_Rect hitBox()
@@ -50,10 +50,6 @@ class Eni
 
     protected:
 
-    private:
-        static SDL_Surface *m_sprite;
-        static SDL_Surface *m_spriteTurret;
-
         int m_posX;
         int m_posY;
         int m_width;
@@ -73,6 +69,9 @@ class Eni
         //**** sfx ******
         static Mix_Chunk *fireSound;
 
+private:
+        static SDL_Surface *m_sprite;
+        static SDL_Surface *m_spriteTurret;
 
 };
 

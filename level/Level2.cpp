@@ -19,7 +19,7 @@ void Level2::initPlayer()
     player.init(900,2350);
 }
 
-void Level2::initEni()
+void Level2::loadEnis()
 {
     //desert 1
     enis.push_back(new Eni( 550,1900));
@@ -103,6 +103,11 @@ void Level2::initEni()
     enis.push_back(new Eni( 2200,1900));
     enis.push_back(new Eni( 2400,2100));
     enis.push_back(new Eni( 2350,2250));
+
+}
+
+void Level2::unloadEnis()
+{
 
 }
 

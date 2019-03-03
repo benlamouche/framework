@@ -19,7 +19,7 @@ void Level3::initPlayer()
     player.init(870,400);
 }
 
-void Level3::initEni()
+void Level3::loadEnis()
 {
     //montagne
     enis.push_back(new Eni( 350,900));
@@ -114,6 +114,11 @@ void Level3::initEni()
     //iles desert
     enis.push_back(new Eni( 1500,2900));
     enis.push_back(new Eni( 1500,3050));
+
+}
+
+void Level3::unloadEnis()
+{
 
 }
 
