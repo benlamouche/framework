@@ -42,7 +42,7 @@ MyGame::MyGame()
     menuIntro= new MenuIntro;
     level1= new Level1;
     level2= new Level2;
-    level2= new Level3;
+    level3= new Level3;
     this->setCurrentScene(menuIntro);
 }
 
