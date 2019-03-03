@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "../util/collision.h"//pour gestion souris
 
 extern SDL_Color NOIR;
 extern SDL_Color VERT;
@@ -46,6 +47,20 @@ void Menu::affiche(SDL_Window *ecran)
             pos.y+=m_hauteurLigne;
         }
 
+}
+
+void Menu::onMouse(int x,int y)
+{
+    SDL_Rect pos=position();
+    pos.h=m_hauteurLigne;
+    pos.w=m_longueur;//a verifier1 a optimiser ??????????????
+    for(it=vec.begin();it!=vec.end();it++){
+            if(pointCollision(x,y,pos)){
+                m_actif=it;
+                break;
+            }
+            pos.y+=m_hauteurLigne;
+        }
 }
 
 int Menu::updateMenu(int val){

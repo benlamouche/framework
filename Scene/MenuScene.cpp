@@ -43,7 +43,8 @@ void MenuScene::unload()
 
 }
 
-void MenuScene::update(int dt)
+
+void MenuScene::input()
 {
     switch(event.type)
     {
@@ -74,9 +75,24 @@ void MenuScene::update(int dt)
                     Menu::setMenuActif(Menu::menuActif()->menuParent());
                     break;
             }
-        break;
+            break;
+        case SDL_MOUSEBUTTONDOWN  :
+                switch(event.button.button)//  Gestion des bouton souris
+                {
+                    case SDL_BUTTON_LEFT:
+                        event.button.button=0;
+                        Menu::activation();// a optimiser fonctionne en dehor du menu
+                        break;
+                }
+                break;
+        case SDL_MOUSEMOTION:
+                Menu::menuActif()->onMouse(event.motion.x,event.motion.y);
+            break;
     }
+}
 
+void MenuScene::update(int dt)
+{
     int returnVal =0;
     returnVal = Menu::updateMenu(returnVal);
     if(returnVal==PLAY){

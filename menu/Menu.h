@@ -54,6 +54,9 @@ class Menu
         SDL_Rect position(){SDL_Rect pos; pos.x=m_x; pos.y=m_y; return pos;}
         void setPosition(int x,int y){m_x=x;m_y=y;}
 
+        //gestion de la souris
+        void onMouse(int x,int y);
+
         //  GESTION COMPLETE DU MENU
 
         static int updateMenu(int val=0);

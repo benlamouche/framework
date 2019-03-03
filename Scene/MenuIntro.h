@@ -16,6 +16,7 @@ class MenuIntro : public Scene
         virtual void load();
         virtual void unload();
         virtual void update(int dt);
+        void input();
 
 
     private:
