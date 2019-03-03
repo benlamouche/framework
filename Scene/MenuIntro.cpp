@@ -25,7 +25,7 @@ MenuIntro::~MenuIntro()
 
 void MenuIntro::load()
 {
-    mPrincipal= new Menu(250,150,menuFont,50);
+    mPrincipal= new Menu(350,50,menuFont,50);
 
     mPrincipal->addElement(new GoLevel(1,"level 1"));
     mPrincipal->addElement(new GoLevel(2,"level 2"));
