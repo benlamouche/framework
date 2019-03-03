@@ -3,7 +3,6 @@
 #include "../Player.h"
 #include "../MyGame.h"
 
-#include "../Boss.h"
 extern Player player;
 
 Level1::Level1(): FinalMap("data/map/level1.mp","data/map/wmap.png")
@@ -23,9 +22,6 @@ void Level1::initPlayer()
 
 void Level1::loadEnis()
 {
-    Boss::load();
-    enis.push_back(new Boss(1200,1000));
-
     enis.push_back(new Eni(1200,250));
     enis.push_back(new Eni(1250,300));
     enis.push_back(new Eni(1300,350));
@@ -68,7 +64,7 @@ void Level1::loadEnis()
 
 void Level1::unloadEnis()
 {
-    Boss::unload();
+
 }
 
 void Level1::loadMusic()

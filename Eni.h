@@ -26,7 +26,7 @@ class Eni
         int height(){return m_height;}
 
         bool isDestroyed(){return m_isDestroyed;}
-        void damage();
+        virtual void damage();
 
         virtual void fire();
         void init();

@@ -93,6 +93,8 @@
 			<Add library="C:/Program Files (x86)/CodeBlocks/SDL2_mixer-2.0.2/lib/x86/SDL2_mixer.lib" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/SDL2-2.0.5/lib/x86" />
 		</Linker>
+		<Unit filename="Boss.cpp" />
+		<Unit filename="Boss.h" />
 		<Unit filename="Bullet.cpp" />
 		<Unit filename="Bullet.h" />
 		<Unit filename="Eni.cpp" />

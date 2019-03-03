@@ -2,7 +2,7 @@
 #define BOSS_H
 
 #include "Eni.h"
-
+#include "util/Barre.h"
 
 class Boss : public Eni
 {
@@ -10,6 +10,8 @@ class Boss : public Eni
         Boss(int x,int y);
         virtual ~Boss();
         void draw(int playerX,int playerY);
+        void damage();
+        void fire();
 
         static void load();
         static void unload();
@@ -18,6 +20,11 @@ class Boss : public Eni
     protected:
 
     private:
+        bool isDamaged;
+        int pv;
+        int pvMax;
+        Barre barre;
+
         static SDL_Surface *BossSprite;
         static SDL_Surface *BossTurret;
 

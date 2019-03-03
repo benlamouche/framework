@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../Player.h"
 #include "../MyGame.h"
+#include "../Boss.h"
 extern Player player;
 
 Level2::Level2(): FinalMap("data/map/level2.mp","data/map/wmap.png")
@@ -104,11 +105,14 @@ void Level2::loadEnis()
     enis.push_back(new Eni( 2400,2100));
     enis.push_back(new Eni( 2350,2250));
 
+    Boss::load();
+    enis.push_back(new Boss(2000,2150));
+
 }
 
 void Level2::unloadEnis()
 {
-
+    Boss::unload();
 }
 
 void Level2::loadMusic()
