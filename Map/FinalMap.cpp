@@ -6,7 +6,7 @@
 #include "../constante.h"
 #include "../gfx/SDL2_rotozoom.h"
 #include "../Player.h"
-#include "MenuScene.h"
+#include "../Scene/MenuScene.h"
 #include "../MapElement/Plan.h"
 #include "../MapElement/Wall.h"
 #include "../MapElement/Sortie.h"
@@ -29,7 +29,7 @@ FinalMap::FinalMap(const char* file,const char* TileSet,int Zoom): Map(file),zoo
         tileSet = temp;
         m_tileWidth = tileWidth()*zoom;
         m_tileHeight = tileHeight()*zoom;
-    //calcul du nombre de tuile pas écran (écran doit etre initilisé)
+    //calcul du nombre de tuile pas ï¿½cran (ï¿½cran doit etre initilisï¿½)
         nbtuecranx=WECRAN/tileWidth();
         nbtuecrany=HECRAN/tileHeight();
     // valeur par default des objet tuile
