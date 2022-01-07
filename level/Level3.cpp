@@ -4,7 +4,7 @@
 #include "../MyGame.h"
 extern Player player;
 
-Level3::Level3(): FinalMap("data/map/Level3.mp","data/map/wmap.png")
+Level3::Level3(): FinalMap("data/map/level3.mp","data/map/wmap.png")
 {
     //ctor
 }
@@ -114,7 +114,6 @@ void Level3::loadEnis()
     //iles desert
     enis.push_back(new Eni( 1500,2900));
     enis.push_back(new Eni( 1500,3050));
-
 }
 
 void Level3::unloadEnis()

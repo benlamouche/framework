@@ -51,7 +51,7 @@ MyGame::MyGame()
 MyGame::~MyGame()
 {
     //dtor
-    //  fermeture du programme déchargement des modules et sprites
+    //  fermeture du programme dï¿½chargement des modules et sprites
 
     TTF_CloseFont(texteFont);
     TTF_CloseFont(menuFont);
